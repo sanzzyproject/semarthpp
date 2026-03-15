@@ -1,73 +1,49 @@
-# Welcome to your Lovable project
+# SmartHPP
 
-## Project info
+![Status](https://img.shields.io/badge/status-development-orange)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![React](https://img.shields.io/badge/React-18-61dafb)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+![Vite](https://img.shields.io/badge/Vite-build-purple)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-UI-38bdf8)
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+SmartHPP adalah **web application kalkulator HPP (Harga Pokok Produksi)** yang dirancang untuk membantu pelaku usaha menghitung biaya produksi, HPP per unit, serta estimasi keuntungan secara lebih mudah dan terstruktur.
 
-## How can I edit this code?
+Aplikasi ini ditujukan untuk **UMKM, pelaku usaha rumahan, dan calon pebisnis** agar dapat memahami struktur biaya dan menentukan harga jual yang lebih tepat.
 
-There are several ways of editing your application.
+Saat ini project masih dalam **tahap pengembangan aktif**.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+# Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- Perhitungan **biaya bahan baku**
+- Perhitungan **biaya pengolahan**
+- Kalkulasi **HPP per unit**
+- Estimasi **potensi laba**
+- Simulasi **proyeksi penjualan**
+- Grafik visual **proyeksi keuntungan**
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+# Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Project ini dibangun menggunakan teknologi modern:
 
-Follow these steps:
+- **React**
+- **TypeScript**
+- **Vite**
+- **Tailwind CSS**
+- **shadcn/ui**
+- **Chart.js** (untuk visualisasi data)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Getting Started
 
-# Step 3: Install the necessary dependencies.
-npm i
+Ikuti langkah berikut untuk menjalankan project secara lokal.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### 1. Clone repository
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```bash
+git clone https://github.com/username/smarthpp.git
