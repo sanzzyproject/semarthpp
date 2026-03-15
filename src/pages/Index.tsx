@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Calculator, Save, FileSpreadsheet } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  Calculator,
+  Save,
+  FileSpreadsheet,
+  ArrowLeft,
+  Sparkles,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -25,7 +33,13 @@ import type {
   CalculationRecord,
 } from "@/types";
 
+const fadeIn = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+};
+
 const Index = () => {
+  const navigate = useNavigate();
   const [businessMode, setBusinessMode] = useState<BusinessMode | null>(null);
   const [businessName, setBusinessName] = useState("");
   const [batchPerMonth, setBatchPerMonth] = useState(1);
@@ -98,45 +112,81 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background noise-bg">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
+      <motion.header
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="sticky top-0 z-40 glass-strong"
+      >
         <div className="container flex h-14 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Calculator className="h-6 w-6 text-primary" />
-            <h1 className="text-base font-bold text-foreground">Kalkulator HPP</h1>
+          <div className="flex items-center gap-2.5">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => navigate("/")}
+              className="h-8 w-8 mr-1"
+            >
+              <ArrowLeft className="h-4 w-4" />
+            </Button>
+            <div className="h-8 w-8 rounded-lg gradient-primary flex items-center justify-center">
+              <Calculator className="h-4 w-4 text-white" />
+            </div>
+            <span className="text-sm font-bold text-foreground">SemartHPP</span>
           </div>
           <HistoryPanel onLoad={handleLoadRecord} refreshKey={refreshKey} />
         </div>
-      </header>
+      </motion.header>
 
       {/* Main Content */}
-      <main className="container py-4 space-y-6 pb-24">
+      <main className="container py-6 space-y-6 pb-24 max-w-2xl">
+        <motion.div initial="hidden" animate="visible" variants={fadeIn}>
+          <div className="flex items-center gap-2 mb-1">
+            <Sparkles className="h-4 w-4 text-primary" />
+            <span className="text-xs font-medium text-primary uppercase tracking-wider">Kalkulator HPP</span>
+          </div>
+          <h1 className="text-2xl font-extrabold text-foreground tracking-tight">
+            Hitung HPP Bisnis Anda
+          </h1>
+          <p className="text-sm text-muted-foreground mt-1">
+            Isi data di bawah untuk menghitung HPP secara otomatis.
+          </p>
+        </motion.div>
+
         {/* Business Mode */}
-        <BusinessModeSelector selected={businessMode} onSelect={setBusinessMode} />
+        <motion.div initial="hidden" animate="visible" variants={fadeIn}>
+          <BusinessModeSelector selected={businessMode} onSelect={setBusinessMode} />
+        </motion.div>
 
         {/* Form Inputs */}
-        <div className="space-y-3">
-          <h2 className="text-lg font-bold text-foreground">Data Produksi</h2>
-          <div className="space-y-2">
-            <Label className="text-sm">Nama Bisnis / Produk Utama</Label>
-            <Input
-              placeholder="Contoh: Usaha Kelapa Terpadu"
-              value={businessName}
-              onChange={(e) => setBusinessName(e.target.value)}
-            />
+        <motion.div initial="hidden" animate="visible" variants={fadeIn} className="space-y-4">
+          <div className="glass rounded-2xl p-5 space-y-4">
+            <h2 className="text-base font-bold text-foreground flex items-center gap-2">
+              <div className="h-1.5 w-1.5 rounded-full gradient-primary" />
+              Data Produksi
+            </h2>
+            <div className="space-y-2">
+              <Label className="text-sm font-medium">Nama Bisnis / Produk Utama</Label>
+              <Input
+                placeholder="Contoh: Usaha Kelapa Terpadu"
+                value={businessName}
+                onChange={(e) => setBusinessName(e.target.value)}
+                className="glass"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label className="text-sm font-medium">Jumlah Batch Produksi per Bulan</Label>
+              <Input
+                type="number"
+                placeholder="Contoh: 30"
+                value={batchPerMonth || ""}
+                onChange={(e) => setBatchPerMonth(Number(e.target.value))}
+                min={1}
+                className="glass"
+              />
+            </div>
           </div>
-          <div className="space-y-2">
-            <Label className="text-sm">Jumlah Batch Produksi per Bulan</Label>
-            <Input
-              type="number"
-              placeholder="Contoh: 30"
-              value={batchPerMonth || ""}
-              onChange={(e) => setBatchPerMonth(Number(e.target.value))}
-              min={1}
-            />
-          </div>
-        </div>
+        </motion.div>
 
         {/* Input Sections */}
         <InputBahanBaku items={bahanBaku} onChange={setBahanBaku} />
@@ -144,14 +194,23 @@ const Index = () => {
         <InputProduk items={produkTurunan} onChange={setProdukTurunan} />
 
         {/* Hitung Button */}
-        <Button onClick={handleHitung} className="w-full h-12 text-base font-bold gap-2" size="lg">
+        <Button
+          onClick={handleHitung}
+          className="w-full h-13 text-base font-bold gap-2 gradient-primary text-white border-0 shadow-glow hover:opacity-90 transition-all rounded-xl"
+          size="lg"
+        >
           <Calculator className="h-5 w-5" />
-          Hitung HPP
+          Hitung HPP Sekarang
         </Button>
 
         {/* Results */}
         {hasil && (
-          <>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-6"
+          >
             <HPPResult
               hasil={hasil}
               bahanBaku={bahanBaku}
@@ -172,17 +231,24 @@ const Index = () => {
 
             {/* Action Buttons */}
             <div className="grid grid-cols-2 gap-3">
-              <Button onClick={handleSave} variant="outline" className="gap-2">
+              <Button onClick={handleSave} variant="outline" className="gap-2 glass rounded-xl h-11">
                 <Save className="h-4 w-4" />
                 Simpan
               </Button>
-              <Button onClick={handleExport} variant="outline" className="gap-2">
+              <Button onClick={handleExport} variant="outline" className="gap-2 glass rounded-xl h-11">
                 <FileSpreadsheet className="h-4 w-4" />
                 Export Excel
               </Button>
             </div>
-          </>
+          </motion.div>
         )}
+
+        {/* Footer */}
+        <div className="text-center pt-8 pb-4">
+          <p className="text-xs text-muted-foreground">
+            Dibuat oleh <span className="font-semibold text-foreground">SANN404 FORUM</span>
+          </p>
+        </div>
       </main>
     </div>
   );
