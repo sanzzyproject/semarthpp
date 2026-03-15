@@ -1,5 +1,6 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BarChart3 } from "lucide-react";
 import type { HasilPerhitungan } from "@/types";
 
 interface Props {
@@ -26,18 +27,21 @@ const ChartProfit = ({ hasil, batchPerMonth }: Props) => {
   });
 
   return (
-    <Card>
+    <Card className="glass rounded-xl overflow-hidden">
       <CardHeader className="p-4 pb-2">
-        <CardTitle className="text-sm">Grafik Proyeksi Laba 30 Hari</CardTitle>
+        <CardTitle className="text-sm flex items-center gap-2">
+          <BarChart3 className="h-4 w-4 text-primary" />
+          Grafik Proyeksi Laba 30 Hari
+        </CardTitle>
       </CardHeader>
-      <CardContent className="p-2">
-        <ResponsiveContainer width="100%" height={250}>
+      <CardContent className="p-3">
+        <ResponsiveContainer width="100%" height={260}>
           <LineChart data={data}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-            <XAxis dataKey="name" tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" />
+            <XAxis dataKey="name" tick={{ fontSize: 11, fill: "hsl(var(--muted-foreground))" }} stroke="hsl(var(--border))" />
             <YAxis
-              tick={{ fontSize: 10 }}
-              stroke="hsl(var(--muted-foreground))"
+              tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }}
+              stroke="hsl(var(--border))"
               tickFormatter={(v) => `${(v / 1000000).toFixed(1)}jt`}
             />
             <Tooltip
@@ -45,14 +49,15 @@ const ChartProfit = ({ hasil, batchPerMonth }: Props) => {
               contentStyle={{
                 backgroundColor: "hsl(var(--card))",
                 border: "1px solid hsl(var(--border))",
-                borderRadius: "8px",
+                borderRadius: "12px",
                 fontSize: "12px",
+                backdropFilter: "blur(12px)",
               }}
             />
-            <Legend wrapperStyle={{ fontSize: "12px" }} />
-            <Line type="monotone" dataKey="Kondisi Rame" stroke="hsl(var(--success))" strokeWidth={2} dot={{ r: 4 }} />
-            <Line type="monotone" dataKey="Target" stroke="hsl(var(--primary))" strokeWidth={2} dot={{ r: 4 }} />
-            <Line type="monotone" dataKey="Kondisi Sepi" stroke="hsl(var(--destructive))" strokeWidth={2} dot={{ r: 4 }} />
+            <Legend wrapperStyle={{ fontSize: "11px" }} />
+            <Line type="monotone" dataKey="Kondisi Rame" stroke="hsl(var(--success))" strokeWidth={2.5} dot={{ r: 5, fill: "hsl(var(--success))" }} />
+            <Line type="monotone" dataKey="Target" stroke="hsl(var(--primary))" strokeWidth={2.5} dot={{ r: 5, fill: "hsl(var(--primary))" }} />
+            <Line type="monotone" dataKey="Kondisi Sepi" stroke="hsl(var(--destructive))" strokeWidth={2.5} dot={{ r: 5, fill: "hsl(var(--destructive))" }} />
           </LineChart>
         </ResponsiveContainer>
       </CardContent>

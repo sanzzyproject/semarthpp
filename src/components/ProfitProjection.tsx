@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { Target, TrendingUp } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
 import type { HasilPerhitungan } from "@/types";
 
 interface Props {
@@ -21,10 +24,16 @@ const ProfitProjection = ({ hasil, batchPerMonth }: Props) => {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-lg font-bold text-foreground">Proyeksi Laba Bulanan</h2>
+      <h2 className="text-base font-bold text-foreground flex items-center gap-2">
+        <div className="h-1.5 w-1.5 rounded-full gradient-primary" />
+        Proyeksi Laba Bulanan
+      </h2>
 
-      <div className="space-y-2">
-        <Label className="text-sm">Target Laba Bersih / Bulan</Label>
+      <div className="glass rounded-xl p-4 space-y-3">
+        <div className="flex items-center gap-2">
+          <Target className="h-4 w-4 text-primary" />
+          <Label className="text-sm font-medium">Target Laba Bersih / Bulan</Label>
+        </div>
         <Input
           type="number"
           placeholder="Masukkan target laba"
@@ -34,33 +43,45 @@ const ProfitProjection = ({ hasil, batchPerMonth }: Props) => {
       </div>
 
       <div className="grid grid-cols-2 gap-3">
-        <Card>
-          <CardContent className="p-3">
-            <p className="text-xs text-muted-foreground">Potensi Omzet / Bulan</p>
-            <p className="text-sm font-bold text-foreground">{formatRp(omzetBulan)}</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="p-3">
-            <p className="text-xs text-muted-foreground">Total Biaya / Bulan</p>
-            <p className="text-sm font-bold text-foreground">{formatRp(biayaBulan)}</p>
-          </CardContent>
-        </Card>
-        <Card className="col-span-2">
-          <CardContent className="p-3">
-            <p className="text-xs text-muted-foreground">Proyeksi Laba Bersih / Bulan</p>
-            <p className={`text-lg font-bold ${labaBulan >= 0 ? "text-success" : "text-destructive"}`}>
-              {formatRp(labaBulan)}
-            </p>
-            {targetLaba > 0 && (
-              <p className="text-xs mt-1 text-muted-foreground">
-                {labaBulan >= targetLaba
-                  ? `✅ Target tercapai! Surplus ${formatRp(labaBulan - targetLaba)}`
-                  : `⚠️ Kurang ${formatRp(targetLaba - labaBulan)} dari target`}
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
+          <Card className="glass rounded-xl border-border/50 shadow-card">
+            <CardContent className="p-4">
+              <p className="text-xs text-muted-foreground mb-1">Potensi Omzet / Bulan</p>
+              <p className="text-sm font-bold text-foreground">{formatRp(omzetBulan)}</p>
+            </CardContent>
+          </Card>
+        </motion.div>
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
+          <Card className="glass rounded-xl border-border/50 shadow-card">
+            <CardContent className="p-4">
+              <p className="text-xs text-muted-foreground mb-1">Total Biaya / Bulan</p>
+              <p className="text-sm font-bold text-foreground">{formatRp(biayaBulan)}</p>
+            </CardContent>
+          </Card>
+        </motion.div>
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="col-span-2">
+          <Card className={cn(
+            "glass rounded-xl border-2 shadow-card",
+            labaBulan >= 0 ? "border-success/30" : "border-destructive/30"
+          )}>
+            <CardContent className="p-4">
+              <div className="flex items-center gap-2 mb-1">
+                <TrendingUp className={cn("h-4 w-4", labaBulan >= 0 ? "text-success" : "text-destructive")} />
+                <p className="text-xs text-muted-foreground">Proyeksi Laba Bersih / Bulan</p>
+              </div>
+              <p className={cn("text-xl font-extrabold", labaBulan >= 0 ? "text-success" : "text-destructive")}>
+                {formatRp(labaBulan)}
               </p>
-            )}
-          </CardContent>
-        </Card>
+              {targetLaba > 0 && (
+                <p className="text-xs mt-2 text-muted-foreground">
+                  {labaBulan >= targetLaba
+                    ? `✅ Target tercapai! Surplus ${formatRp(labaBulan - targetLaba)}`
+                    : `⚠️ Kurang ${formatRp(targetLaba - labaBulan)} dari target`}
+                </p>
+              )}
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
     </div>
   );
