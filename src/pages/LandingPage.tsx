@@ -68,27 +68,27 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-background noise-bg overflow-hidden">
+    <div className="min-h-screen bg-white overflow-hidden">
       {/* Navbar */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="fixed top-0 left-0 right-0 z-50 glass-strong"
+        className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-blue-50"
       >
         <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="h-9 w-9 rounded-xl gradient-primary flex items-center justify-center shadow-glow">
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-10 rounded-2xl gradient-primary flex items-center justify-center shadow-glow">
               <Calculator className="h-5 w-5 text-white" />
             </div>
             <div>
-              <span className="text-base font-bold text-foreground tracking-tight">SemartHPP</span>
-              <span className="hidden sm:inline text-xs text-muted-foreground ml-2">by SANN404 FORUM</span>
+              <span className="text-lg font-extrabold text-foreground tracking-tight">SemartHPP</span>
+              <span className="hidden sm:inline text-xs text-muted-foreground ml-2 font-medium">by SANN404 FORUM</span>
             </div>
           </div>
           <Button
             onClick={() => navigate("/calculator")}
-            className="gradient-primary text-white border-0 shadow-glow hover:opacity-90 transition-opacity gap-1.5"
+            className="gradient-primary text-white border-0 shadow-glow hover:shadow-lg hover:scale-[1.02] transition-all gap-1.5 rounded-xl font-semibold"
             size="sm"
           >
             Mulai Hitung
@@ -98,28 +98,29 @@ const LandingPage = () => {
       </motion.header>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
-        {/* Background orbs */}
-        <div className="absolute top-20 -left-32 w-72 h-72 rounded-full bg-primary/10 blur-[100px] animate-pulse-slow" />
-        <div className="absolute top-40 -right-32 w-80 h-80 rounded-full bg-accent/10 blur-[100px] animate-pulse-slow" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-48 rounded-full bg-primary/5 blur-[80px]" />
+      <section className="relative pt-36 pb-24 px-4 overflow-hidden">
+        {/* Background decorations */}
+        <div className="absolute top-0 left-0 right-0 h-full bg-gradient-to-b from-blue-50/80 via-white to-white" />
+        <div className="absolute top-20 -left-32 w-96 h-96 rounded-full bg-blue-100/40 blur-[120px] animate-pulse-slow" />
+        <div className="absolute top-40 -right-32 w-96 h-96 rounded-full bg-blue-200/30 blur-[120px] animate-pulse-slow" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-50/50 blur-[100px]" />
 
         <div className="container relative z-10 text-center max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6 text-xs font-medium text-muted-foreground"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-50 border border-blue-100 mb-8 text-xs font-semibold text-primary"
           >
-            <Sparkles className="h-3.5 w-3.5 text-primary" />
-            Kalkulator HPP Bisnis Terlengkap
+            <Sparkles className="h-3.5 w-3.5" />
+            Kalkulator HPP Bisnis Terlengkap 2026
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.1] mb-5"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.08] mb-6 text-foreground"
           >
             Hitung{" "}
             <span className="gradient-text">HPP Bisnis</span>
@@ -131,7 +132,7 @@ const LandingPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed"
+            className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed"
           >
             Kalkulator Harga Pokok Produksi otomatis untuk UMKM, manufaktur, F&B, dan semua jenis bisnis.
             Gratis, akurat, dan langsung di browser Anda.
@@ -146,7 +147,7 @@ const LandingPage = () => {
             <Button
               onClick={() => navigate("/calculator")}
               size="lg"
-              className="gradient-primary text-white border-0 shadow-glow hover:opacity-90 transition-all h-12 px-8 text-base font-semibold gap-2"
+              className="gradient-primary text-white border-0 shadow-glow hover:shadow-lg hover:scale-[1.02] transition-all h-13 px-10 text-base font-bold gap-2.5 rounded-2xl"
             >
               <Zap className="h-5 w-5" />
               Mulai Hitung HPP
@@ -155,7 +156,7 @@ const LandingPage = () => {
               variant="outline"
               size="lg"
               onClick={() => document.getElementById("features")?.scrollIntoView({ behavior: "smooth" })}
-              className="glass h-12 px-8 text-base font-semibold gap-2"
+              className="h-13 px-10 text-base font-semibold gap-2 rounded-2xl bg-white border-blue-200 hover:bg-blue-50 hover:border-blue-300 transition-all text-foreground"
             >
               Lihat Fitur
               <ChevronRight className="h-4 w-4" />
@@ -165,9 +166,9 @@ const LandingPage = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-12 border-y border-border/50">
+      <section className="py-16 bg-white border-y border-blue-50">
         <div className="container">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
@@ -178,8 +179,8 @@ const LandingPage = () => {
                 variants={fadeUp}
                 className="text-center"
               >
-                <p className="text-3xl sm:text-4xl font-extrabold gradient-text">{stat.value}</p>
-                <p className="text-xs sm:text-sm text-muted-foreground mt-1">{stat.label}</p>
+                <p className="text-4xl sm:text-5xl font-extrabold gradient-text">{stat.value}</p>
+                <p className="text-sm text-muted-foreground mt-2 font-medium">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -187,23 +188,26 @@ const LandingPage = () => {
       </section>
 
       {/* Features */}
-      <section id="features" className="py-20 px-4">
+      <section id="features" className="py-24 px-4 bg-gradient-to-b from-white via-blue-50/30 to-white">
         <div className="container max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-14"
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3">
-              Fitur <span className="gradient-text">Lengkap</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 mb-4 text-xs font-semibold text-primary">
+              Fitur Unggulan
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-foreground">
+              Semua yang Anda <span className="gradient-text">Butuhkan</span>
             </h2>
-            <p className="text-muted-foreground max-w-md mx-auto">
-              Semua yang Anda butuhkan untuk menghitung HPP bisnis dengan akurat.
+            <p className="text-muted-foreground max-w-md mx-auto text-base">
+              Tools lengkap untuk menghitung HPP bisnis dengan akurat dan profesional.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {features.map((f, i) => (
               <motion.div
                 key={i}
@@ -212,12 +216,12 @@ const LandingPage = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
-                className="group glass rounded-2xl p-6 hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
+                className="group bg-white rounded-2xl p-6 border border-blue-50 hover:border-blue-200 hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="h-11 w-11 rounded-xl gradient-primary flex items-center justify-center mb-4 shadow-glow group-hover:scale-110 transition-transform">
-                  <f.icon className="h-5 w-5 text-white" />
+                <div className="h-12 w-12 rounded-2xl gradient-primary flex items-center justify-center mb-5 shadow-glow group-hover:scale-110 transition-transform duration-300">
+                  <f.icon className="h-5.5 w-5.5 text-white" />
                 </div>
-                <h3 className="text-base font-bold text-foreground mb-1.5">{f.title}</h3>
+                <h3 className="text-base font-bold text-foreground mb-2">{f.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
               </motion.div>
             ))}
@@ -226,29 +230,29 @@ const LandingPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4">
+      <section className="py-24 px-4">
         <div className="container max-w-2xl">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="gradient-primary rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden"
+            className="gradient-primary rounded-3xl p-10 sm:p-14 text-center relative overflow-hidden shadow-glow"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/10 -translate-y-1/2 translate-x-1/2 blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2 blur-2xl" />
+            <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-white/10 -translate-y-1/2 translate-x-1/3 blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-60 h-60 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/3 blur-2xl" />
 
             <div className="relative z-10">
-              <Star className="h-10 w-10 text-white/80 mx-auto mb-4" />
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
-                Siap Menghitung HPP Bisnis Anda?
+              <Star className="h-12 w-12 text-white/80 mx-auto mb-5" />
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4 leading-tight">
+                Siap Menghitung HPP<br />Bisnis Anda?
               </h2>
-              <p className="text-white/80 mb-6 max-w-md mx-auto">
+              <p className="text-white/80 mb-8 max-w-md mx-auto text-base">
                 Mulai hitung HPP sekarang. Tanpa registrasi, tanpa biaya, langsung pakai.
               </p>
               <Button
                 onClick={() => navigate("/calculator")}
                 size="lg"
-                className="bg-white text-foreground hover:bg-white/90 h-12 px-8 text-base font-bold gap-2 shadow-lg"
+                className="bg-white text-primary hover:bg-blue-50 h-13 px-10 text-base font-bold gap-2.5 shadow-lg rounded-2xl hover:scale-[1.02] transition-all"
               >
                 Mulai Sekarang
                 <ArrowRight className="h-5 w-5" />
@@ -259,16 +263,16 @@ const LandingPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border/50 py-8 px-4">
+      <footer className="border-t border-blue-50 py-10 px-4 bg-white">
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="h-7 w-7 rounded-lg gradient-primary flex items-center justify-center">
+          <div className="flex items-center gap-2.5">
+            <div className="h-8 w-8 rounded-xl gradient-primary flex items-center justify-center">
               <Calculator className="h-4 w-4 text-white" />
             </div>
             <span className="text-sm font-bold text-foreground">SemartHPP</span>
           </div>
           <p className="text-xs text-muted-foreground">
-            © 2026 <span className="font-semibold text-foreground">SANN404 FORUM</span> — All rights reserved.
+            © 2026 <span className="font-bold text-foreground">SANN404 FORUM</span> — All rights reserved.
           </p>
         </div>
       </footer>
