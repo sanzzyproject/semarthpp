@@ -91,7 +91,7 @@ const LandingPage = () => {
             <img
               src="https://l.top4top.io/p_3727yyk5t0.png"
               alt="SemartHPP"
-              className="h-17 w-auto"
+              className="h-15 w-auto"
             />
           </div>
 
