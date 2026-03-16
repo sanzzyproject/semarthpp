@@ -21,6 +21,8 @@ import ProfitProjection from "@/components/ProfitProjection";
 import ChartProfit from "@/components/ChartProfit";
 import BundlingCalculator from "@/components/BundlingCalculator";
 import HistoryPanel from "@/components/HistoryPanel";
+import RecommendedPrice from "@/components/RecommendedPrice";
+import ProfitTargetCalculator from "@/components/ProfitTargetCalculator";
 import { hitungHPP } from "@/lib/calculations";
 import { saveCalculation } from "@/lib/db";
 import { exportToExcel } from "@/lib/export";
@@ -215,6 +217,14 @@ const Index = () => {
               hasil={hasil}
               bahanBaku={bahanBaku}
               biayaPengolahan={biayaPengolahan}
+              batchPerMonth={batchPerMonth}
+            />
+
+            <RecommendedPrice hppPerProduk={hasil.hppPerProduk} />
+
+            <ProfitTargetCalculator
+              hppPerProduk={hasil.hppPerProduk}
+              produkTurunan={produkTurunan}
               batchPerMonth={batchPerMonth}
             />
 
