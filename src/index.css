@@ -127,7 +127,7 @@
   }
 
   .glass-strong {
-    @apply bg-white/92 backdrop-blur-2xl border-b border-blue-100/50 shadow-sm;
+    @apply bg-white/90 backdrop-blur-2xl border-b border-blue-100/50 shadow-sm;
   }
 
   .gradient-primary {
