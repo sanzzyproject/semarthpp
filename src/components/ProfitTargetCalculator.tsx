@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Target, ShoppingCart, Calculator, TrendingUp, ArrowRight } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Target, ShoppingCart, Calculator, TrendingUp } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -40,23 +39,25 @@ const ProfitTargetCalculator = ({ hppPerProduk, produkTurunan, batchPerMonth }: 
   const totalRevenueNeeded = minUnitsPerMonth * hargaJual;
 
   return (
-    <div className="space-y-4">
-      <h2 className="text-base font-bold text-foreground flex items-center gap-2">
-        <div className="h-1.5 w-1.5 rounded-full gradient-primary" />
-        Kalkulator Target Profit
-      </h2>
-      <p className="text-xs text-muted-foreground -mt-2">
-        Hitung berapa unit yang harus dijual untuk mencapai target keuntungan bulanan Anda.
-      </p>
+    <div className="space-y-5">
+      <div className="flex items-center gap-2.5">
+        <div className="h-8 w-8 rounded-xl bg-warning/8 flex items-center justify-center">
+          <Target className="h-4 w-4 text-warning" />
+        </div>
+        <div>
+          <h2 className="text-sm font-bold text-foreground">Kalkulator Target Profit</h2>
+          <p className="text-[11px] text-muted-foreground">Hitung minimum unit untuk target keuntungan</p>
+        </div>
+      </div>
 
-      <div className="glass rounded-xl p-4 space-y-4">
+      <div className="card-premium p-5 space-y-5">
         <div className="space-y-2">
-          <Label className="text-sm font-medium flex items-center gap-1.5">
-            <ShoppingCart className="h-3.5 w-3.5 text-primary" />
+          <Label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider flex items-center gap-1.5">
+            <ShoppingCart className="h-3 w-3 text-primary" />
             Pilih Produk
           </Label>
           <Select value={selectedProductIndex} onValueChange={setSelectedProductIndex}>
-            <SelectTrigger className="glass">
+            <SelectTrigger className="input-modern h-11">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -68,31 +69,31 @@ const ProfitTargetCalculator = ({ hppPerProduk, produkTurunan, batchPerMonth }: 
         </div>
 
         <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-xl bg-primary/5 p-3 border border-primary/10">
-            <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">HPP / Unit</p>
-            <p className="text-sm font-bold text-foreground mt-0.5">{formatRp(Math.round(hppPerUnit))}</p>
+          <div className="rounded-2xl bg-primary/5 p-3.5 border border-primary/10">
+            <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">HPP / Unit</p>
+            <p className="text-sm font-extrabold text-foreground mt-1 tabular-nums">{formatRp(Math.round(hppPerUnit))}</p>
           </div>
-          <div className="rounded-xl bg-success/5 p-3 border border-success/10">
-            <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Profit / Unit</p>
-            <p className={cn("text-sm font-bold mt-0.5", profitPerUnit >= 0 ? "text-success" : "text-destructive")}>
+          <div className="rounded-2xl bg-success/5 p-3.5 border border-success/10">
+            <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Profit / Unit</p>
+            <p className={cn("text-sm font-extrabold mt-1 tabular-nums", profitPerUnit >= 0 ? "text-success" : "text-destructive")}>
               {formatRp(Math.round(profitPerUnit))}
             </p>
           </div>
-          <div className="rounded-xl bg-accent/5 p-3 border border-accent/10">
-            <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Harga Jual</p>
-            <p className="text-sm font-bold text-foreground mt-0.5">{formatRp(hargaJual)}</p>
+          <div className="rounded-2xl bg-accent/5 p-3.5 border border-accent/10">
+            <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Harga Jual</p>
+            <p className="text-sm font-extrabold text-foreground mt-1 tabular-nums">{formatRp(hargaJual)}</p>
           </div>
-          <div className="rounded-xl bg-warning/5 p-3 border border-warning/10">
-            <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Margin</p>
-            <p className={cn("text-sm font-bold mt-0.5", marginPercent >= 0 ? "text-warning" : "text-destructive")}>
+          <div className="rounded-2xl bg-warning/5 p-3.5 border border-warning/10">
+            <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Margin</p>
+            <p className={cn("text-sm font-extrabold mt-1 tabular-nums", marginPercent >= 0 ? "text-warning" : "text-destructive")}>
               {marginPercent.toFixed(1)}%
             </p>
           </div>
         </div>
 
         <div className="space-y-2">
-          <Label className="text-sm font-medium flex items-center gap-1.5">
-            <Target className="h-3.5 w-3.5 text-primary" />
+          <Label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider flex items-center gap-1.5">
+            <Target className="h-3 w-3 text-primary" />
             Target Profit Bulanan
           </Label>
           <Input
@@ -100,7 +101,7 @@ const ProfitTargetCalculator = ({ hppPerProduk, produkTurunan, batchPerMonth }: 
             placeholder="Contoh: 1000000"
             value={targetProfit || ""}
             onChange={(e) => setTargetProfit(Number(e.target.value))}
-            className="glass"
+            className="input-modern h-11"
           />
         </div>
       </div>
@@ -111,53 +112,43 @@ const ProfitTargetCalculator = ({ hppPerProduk, produkTurunan, batchPerMonth }: 
           animate={{ opacity: 1, y: 0 }}
           className="space-y-3"
         >
-          <Card className="glass rounded-xl border-2 border-primary/20 shadow-card overflow-hidden">
-            <CardContent className="p-0">
-              <div className="gradient-primary p-4">
-                <div className="flex items-center gap-2 text-white">
-                  <Calculator className="h-5 w-5" />
-                  <p className="text-sm font-bold">Hasil Kalkulasi Break-Even</p>
+          <div className="card-premium overflow-hidden">
+            <div className="gradient-primary p-4">
+              <div className="flex items-center gap-2.5 text-white">
+                <div className="h-8 w-8 rounded-xl bg-white/15 backdrop-blur-sm flex items-center justify-center">
+                  <Calculator className="h-4 w-4" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold">Hasil Break-Even</p>
+                  <p className="text-[11px] text-white/70">Target: {formatRp(targetProfit)}</p>
                 </div>
               </div>
-              <div className="p-4 space-y-4">
-                <div className="flex items-center justify-between py-2 border-b border-border/50">
-                  <span className="text-sm text-muted-foreground">Target Profit</span>
-                  <span className="text-sm font-bold text-foreground">{formatRp(targetProfit)}</span>
+            </div>
+            <div className="p-5 space-y-5">
+              <motion.div
+                initial={{ scale: 0.95 }}
+                animate={{ scale: 1 }}
+                className="rounded-2xl bg-primary/5 border-2 border-primary/15 p-5 text-center"
+              >
+                <p className="text-[11px] text-muted-foreground font-medium uppercase tracking-wider mb-1">Minimum Penjualan / Bulan</p>
+                <p className="text-4xl font-extrabold gradient-text tabular-nums">{minUnitsPerMonth.toLocaleString("id-ID")}</p>
+                <p className="text-sm font-semibold text-foreground mt-1">{produk.satuan} / bulan</p>
+              </motion.div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="stat-card text-center">
+                  <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Per Hari</p>
+                  <p className="text-xl font-extrabold text-foreground mt-1 tabular-nums">{minUnitsPerDay.toLocaleString("id-ID")}</p>
+                  <p className="text-[10px] text-muted-foreground">{produk.satuan}</p>
                 </div>
-
-                <motion.div
-                  initial={{ scale: 0.95 }}
-                  animate={{ scale: 1 }}
-                  className="rounded-xl bg-primary/5 border-2 border-primary/20 p-4 text-center"
-                >
-                  <p className="text-xs text-muted-foreground mb-1">Minimum Penjualan / Bulan</p>
-                  <p className="text-3xl font-extrabold gradient-text">{minUnitsPerMonth.toLocaleString("id-ID")}</p>
-                  <p className="text-sm font-medium text-foreground">{produk.satuan} / bulan</p>
-                </motion.div>
-
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="rounded-xl bg-muted/50 p-3 text-center">
-                    <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Per Hari</p>
-                    <p className="text-lg font-bold text-foreground">{minUnitsPerDay.toLocaleString("id-ID")}</p>
-                    <p className="text-[10px] text-muted-foreground">{produk.satuan}</p>
-                  </div>
-                  <div className="rounded-xl bg-muted/50 p-3 text-center">
-                    <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Omzet Dibutuhkan</p>
-                    <p className="text-lg font-bold text-foreground">{formatRp(totalRevenueNeeded)}</p>
-                    <p className="text-[10px] text-muted-foreground">/ bulan</p>
-                  </div>
+                <div className="stat-card text-center">
+                  <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Omzet Needed</p>
+                  <p className="text-lg font-extrabold text-foreground mt-1 tabular-nums">{formatRp(totalRevenueNeeded)}</p>
+                  <p className="text-[10px] text-muted-foreground">/ bulan</p>
                 </div>
-
-                {profitPerUnit <= 0 && (
-                  <div className="rounded-xl bg-destructive/10 p-3 text-center">
-                    <p className="text-sm font-semibold text-destructive">
-                      ⚠️ Harga jual lebih rendah dari HPP. Tidak mungkin mencapai target.
-                    </p>
-                  </div>
-                )}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </motion.div>
       )}
     </div>
