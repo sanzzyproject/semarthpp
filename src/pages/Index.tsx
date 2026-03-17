@@ -142,13 +142,7 @@ const Index = () => {
             >
               <ArrowLeft className="h-4 w-4 text-muted-foreground" />
             </Button>
-            <div className="h-9 w-9 rounded-xl gradient-primary flex items-center justify-center shadow-glow">
-              <Calculator className="h-4.5 w-4.5 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-bold text-foreground leading-tight">SemartHPP</span>
-              <span className="text-[10px] text-muted-foreground leading-tight">Calculator</span>
-            </div>
+            <img src="/logo.png" alt="SemartHPP" className="h-10 w-auto" />
           </div>
           <HistoryPanel onLoad={handleLoadRecord} refreshKey={refreshKey} />
         </div>
