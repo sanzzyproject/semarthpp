@@ -56,7 +56,7 @@ const WelcomePopup = () => {
               <div>
                 <DialogHeader className="space-y-0 text-left">
                   <DialogTitle className="text-lg font-bold text-white">
-                    🚀 SmartHPP Update
+                    SmartHPP Update
                   </DialogTitle>
                 </DialogHeader>
               </div>
@@ -84,14 +84,14 @@ const WelcomePopup = () => {
               className="btn-primary-xl h-12 text-sm gap-2.5 flex items-center justify-center"
             >
               <Download className="h-4 w-4" />
-              📲 Install App
+              Install App
             </button>
             <button
               onClick={handleChannel}
               className="flex items-center justify-center gap-2.5 h-12 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-semibold shadow-lg shadow-emerald-500/20 transition-all duration-300 active:scale-[0.98]"
             >
               <MessageCircle className="h-4 w-4" />
-              📢 Join Channel Developer
+              Join Channel Developer
             </button>
           </div>
 
