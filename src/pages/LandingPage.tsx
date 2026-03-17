@@ -85,14 +85,8 @@ const LandingPage = () => {
         className="fixed top-0 left-0 right-0 z-50 glass-strong"
       >
         <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-2xl gradient-primary flex items-center justify-center shadow-glow">
-              <Calculator className="h-5 w-5 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-base font-extrabold text-foreground tracking-tight leading-tight">SemartHPP</span>
-              <span className="text-[10px] text-muted-foreground leading-tight font-medium">by SANN404 FORUM</span>
-            </div>
+          <div className="flex items-center">
+            <img src="/logo.png" alt="SemartHPP" className="h-12 w-auto" />
           </div>
           <button
             onClick={() => navigate("/calculator")}
