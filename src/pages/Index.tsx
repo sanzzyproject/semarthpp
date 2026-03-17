@@ -25,6 +25,8 @@ import BundlingCalculator from "@/components/BundlingCalculator";
 import HistoryPanel from "@/components/HistoryPanel";
 import RecommendedPrice from "@/components/RecommendedPrice";
 import ProfitTargetCalculator from "@/components/ProfitTargetCalculator";
+import SalesProjectionCalculator from "@/components/SalesProjectionCalculator";
+import ProductImageUpload from "@/components/ProductImageUpload";
 import { hitungHPP } from "@/lib/calculations";
 import { saveCalculation } from "@/lib/db";
 import { exportToExcel } from "@/lib/export";
