@@ -284,7 +284,7 @@ const LandingPage = () => {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center">
-            <img src="/logo.png" alt="SemartHPP" className="h-10 w-auto" />
+            <img src="/logo.png" alt="SemartHPP" className="h-14 w-auto" />
           </div>
           <p className="text-xs text-muted-foreground">
             © 2026 <span className="font-bold text-foreground">SANN404 FORUM</span> — All rights reserved.

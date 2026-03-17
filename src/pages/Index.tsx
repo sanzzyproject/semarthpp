@@ -290,7 +290,7 @@ const Index = () => {
         {/* Footer */}
         <div className="text-center pt-10 pb-4">
           <div className="inline-flex items-center gap-2 text-xs text-muted-foreground">
-            <img src="/logo.png" alt="SemartHPP" className="h-6 w-auto" />
+            <img src="/logo.png" alt="SemartHPP" className="h-10 w-auto" />
           </div>
         </div>
       </main>
