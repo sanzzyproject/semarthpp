@@ -210,6 +210,11 @@ const Index = () => {
           </div>
         </motion.div>
 
+        {/* Product Image Upload */}
+        <motion.div initial="hidden" animate="visible" variants={fadeUp}>
+          <ProductImageUpload image={productImage} onChange={setProductImage} />
+        </motion.div>
+
         {/* Input Sections */}
         <InputBahanBaku items={bahanBaku} onChange={setBahanBaku} />
         <InputBiaya items={biayaPengolahan} onChange={setBiayaPengolahan} />
