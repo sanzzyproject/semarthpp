@@ -17,9 +17,11 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <WelcomePopup />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/calculator" element={<Index />} />
+          <Route path="/docs" element={<DocsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
