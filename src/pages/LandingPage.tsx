@@ -88,13 +88,21 @@ const LandingPage = () => {
           <div className="flex items-center">
             <img src="/logo.png" alt="SemartHPP" className="h-16 w-auto" />
           </div>
-          <button
-            onClick={() => navigate("/calculator")}
-            className="btn-primary-xl h-10 px-5 text-sm gap-1.5 flex items-center rounded-xl"
-          >
-            Mulai Hitung
-            <ArrowRight className="h-4 w-4" />
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => navigate("/docs")}
+              className="h-10 px-4 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors rounded-xl hover:bg-muted/50"
+            >
+              Docs
+            </button>
+            <button
+              onClick={() => navigate("/calculator")}
+              className="btn-primary-xl h-10 px-5 text-sm gap-1.5 flex items-center rounded-xl"
+            >
+              Mulai Hitung
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
         </div>
       </motion.header>
 
