@@ -25,6 +25,8 @@ import BundlingCalculator from "@/components/BundlingCalculator";
 import HistoryPanel from "@/components/HistoryPanel";
 import RecommendedPrice from "@/components/RecommendedPrice";
 import ProfitTargetCalculator from "@/components/ProfitTargetCalculator";
+import SalesProjectionCalculator from "@/components/SalesProjectionCalculator";
+import ProductImageUpload from "@/components/ProductImageUpload";
 import { hitungHPP } from "@/lib/calculations";
 import { saveCalculation } from "@/lib/db";
 import { exportToExcel } from "@/lib/export";
@@ -57,6 +59,7 @@ const Index = () => {
   const [produkTurunan, setProdukTurunan] = useState<ProdukTurunan[]>([]);
   const [hasil, setHasil] = useState<HasilPerhitungan | null>(null);
   const [refreshKey, setRefreshKey] = useState(0);
+  const [productImage, setProductImage] = useState<string | null>(null);
 
   const handleHitung = () => {
     if (!businessMode) {
@@ -139,13 +142,7 @@ const Index = () => {
             >
               <ArrowLeft className="h-4 w-4 text-muted-foreground" />
             </Button>
-            <div className="h-9 w-9 rounded-xl gradient-primary flex items-center justify-center shadow-glow">
-              <Calculator className="h-4.5 w-4.5 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-bold text-foreground leading-tight">SemartHPP</span>
-              <span className="text-[10px] text-muted-foreground leading-tight">Calculator</span>
-            </div>
+            <img src="/logo.png" alt="SemartHPP" className="h-10 w-auto" />
           </div>
           <HistoryPanel onLoad={handleLoadRecord} refreshKey={refreshKey} />
         </div>
@@ -213,6 +210,11 @@ const Index = () => {
           </div>
         </motion.div>
 
+        {/* Product Image Upload */}
+        <motion.div initial="hidden" animate="visible" variants={fadeUp}>
+          <ProductImageUpload image={productImage} onChange={setProductImage} />
+        </motion.div>
+
         {/* Input Sections */}
         <InputBahanBaku items={bahanBaku} onChange={setBahanBaku} />
         <InputBiaya items={biayaPengolahan} onChange={setBiayaPengolahan} />
@@ -252,6 +254,8 @@ const Index = () => {
               batchPerMonth={batchPerMonth}
             />
 
+            <SalesProjectionCalculator hppPerProduk={hasil.hppPerProduk} />
+
             <ProfitProjection hasil={hasil} batchPerMonth={batchPerMonth} />
 
             <ChartProfit hasil={hasil} batchPerMonth={batchPerMonth} />
@@ -286,10 +290,7 @@ const Index = () => {
         {/* Footer */}
         <div className="text-center pt-10 pb-4">
           <div className="inline-flex items-center gap-2 text-xs text-muted-foreground">
-            <div className="h-5 w-5 rounded-lg gradient-primary flex items-center justify-center">
-              <Calculator className="h-3 w-3 text-white" />
-            </div>
-            Dibuat oleh <span className="font-bold text-foreground">SANN404 FORUM</span>
+            <img src="/logo.png" alt="SemartHPP" className="h-6 w-auto" />
           </div>
         </div>
       </main>
