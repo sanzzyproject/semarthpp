@@ -254,6 +254,8 @@ const Index = () => {
               batchPerMonth={batchPerMonth}
             />
 
+            <SalesProjectionCalculator hppPerProduk={hasil.hppPerProduk} />
+
             <ProfitProjection hasil={hasil} batchPerMonth={batchPerMonth} />
 
             <ChartProfit hasil={hasil} batchPerMonth={batchPerMonth} />
