@@ -86,7 +86,7 @@ const LandingPage = () => {
       >
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center">
-            <img src="/logo.png" alt="SemartHPP" className="h-12 w-auto" />
+            <img src="/logo.png" alt="SemartHPP" className="h-16 w-auto" />
           </div>
           <button
             onClick={() => navigate("/calculator")}
