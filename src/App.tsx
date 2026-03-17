@@ -5,7 +5,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import LandingPage from "./pages/LandingPage";
 import Index from "./pages/Index";
+import DocsPage from "./pages/DocsPage";
 import NotFound from "./pages/NotFound";
+import WelcomePopup from "./components/WelcomePopup";
 
 const queryClient = new QueryClient();
 
