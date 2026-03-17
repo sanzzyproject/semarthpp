@@ -283,14 +283,8 @@ const LandingPage = () => {
       <footer className="py-10 px-4 bg-white relative">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2.5">
-            <div className="h-9 w-9 rounded-xl gradient-primary flex items-center justify-center shadow-glow">
-              <Calculator className="h-4 w-4 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-bold text-foreground leading-tight">SemartHPP</span>
-              <span className="text-[10px] text-muted-foreground leading-tight">Kalkulator HPP Bisnis</span>
-            </div>
+          <div className="flex items-center">
+            <img src="/logo.png" alt="SemartHPP" className="h-10 w-auto" />
           </div>
           <p className="text-xs text-muted-foreground">
             © 2026 <span className="font-bold text-foreground">SANN404 FORUM</span> — All rights reserved.

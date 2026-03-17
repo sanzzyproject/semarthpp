@@ -290,10 +290,7 @@ const Index = () => {
         {/* Footer */}
         <div className="text-center pt-10 pb-4">
           <div className="inline-flex items-center gap-2 text-xs text-muted-foreground">
-            <div className="h-5 w-5 rounded-lg gradient-primary flex items-center justify-center">
-              <Calculator className="h-3 w-3 text-white" />
-            </div>
-            Dibuat oleh <span className="font-bold text-foreground">SANN404 FORUM</span>
+            <img src="/logo.png" alt="SemartHPP" className="h-6 w-auto" />
           </div>
         </div>
       </main>
