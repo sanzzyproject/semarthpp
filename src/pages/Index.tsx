@@ -142,7 +142,7 @@ const Index = () => {
             >
               <ArrowLeft className="h-4 w-4 text-muted-foreground" />
             </Button>
-            <img src="/logo.png" alt="SemartHPP" className="h-10 w-auto" />
+            <img src="/logo.png" alt="SemartHPP" className="h-14 w-auto" />
           </div>
           <HistoryPanel onLoad={handleLoadRecord} refreshKey={refreshKey} />
         </div>
