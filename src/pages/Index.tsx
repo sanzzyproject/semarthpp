@@ -59,6 +59,7 @@ const Index = () => {
   const [produkTurunan, setProdukTurunan] = useState<ProdukTurunan[]>([]);
   const [hasil, setHasil] = useState<HasilPerhitungan | null>(null);
   const [refreshKey, setRefreshKey] = useState(0);
+  const [productImage, setProductImage] = useState<string | null>(null);
 
   const handleHitung = () => {
     if (!businessMode) {
