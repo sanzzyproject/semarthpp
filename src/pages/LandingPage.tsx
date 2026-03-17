@@ -99,7 +99,7 @@ const LandingPage = () => {
               onClick={() => navigate("/calculator")}
               className="btn-primary-xl h-10 px-5 text-sm gap-1.5 flex items-center rounded-xl"
             >
-              Mulai Hitung
+              Mulai
               <ArrowRight className="h-4 w-4" />
             </button>
           </div>
