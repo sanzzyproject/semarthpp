@@ -8,6 +8,13 @@ import Index from "./pages/Index";
 import DocsPage from "./pages/DocsPage";
 import NotFound from "./pages/NotFound";
 import WelcomePopup from "./components/WelcomePopup";
+import AppLayout from "./components/AppLayout";
+import DashboardPage from "./pages/DashboardPage";
+import KeuanganPage from "./pages/KeuanganPage";
+import ProdukPage from "./pages/ProdukPage";
+import LaporanPage from "./pages/LaporanPage";
+import InsightPage from "./pages/InsightPage";
+import SharePage from "./pages/SharePage";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +29,14 @@ const App = () => (
           <Route path="/" element={<LandingPage />} />
           <Route path="/calculator" element={<Index />} />
           <Route path="/docs" element={<DocsPage />} />
+          <Route path="/app" element={<AppLayout />}>
+            <Route index element={<DashboardPage />} />
+            <Route path="keuangan" element={<KeuanganPage />} />
+            <Route path="produk" element={<ProdukPage />} />
+            <Route path="laporan" element={<LaporanPage />} />
+            <Route path="insight" element={<InsightPage />} />
+            <Route path="share" element={<SharePage />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
