@@ -96,6 +96,12 @@ const LandingPage = () => {
               Docs
             </button>
             <button
+              onClick={() => navigate("/app")}
+              className="h-10 px-4 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors rounded-xl hover:bg-muted/50"
+            >
+              Dashboard
+            </button>
+            <button
               onClick={() => navigate("/calculator")}
               className="btn-primary-xl h-10 px-5 text-sm gap-1.5 flex items-center rounded-xl"
             >
