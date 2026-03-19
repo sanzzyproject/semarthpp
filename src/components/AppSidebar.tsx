@@ -1,5 +1,4 @@
 import {
-  LayoutDashboard,
   Wallet,
   Package,
   FileBarChart,
