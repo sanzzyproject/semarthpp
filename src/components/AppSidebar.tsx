@@ -23,7 +23,6 @@ import {
 } from "@/components/ui/sidebar";
 
 const mainItems = [
-  { title: "Dashboard", url: "/app", icon: LayoutDashboard },
   { title: "Keuangan", url: "/app/keuangan", icon: Wallet },
   { title: "Produk", url: "/app/produk", icon: Package },
   { title: "Laporan", url: "/app/laporan", icon: FileBarChart },

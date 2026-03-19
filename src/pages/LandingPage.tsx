@@ -158,7 +158,7 @@ const LandingPage = () => {
             className="flex flex-col sm:flex-row gap-3 justify-center mb-10"
           >
             <button
-              onClick={() => navigate("/calculator")}
+              onClick={() => navigate("/app")}
               className="btn-primary-xl h-14 px-10 text-base gap-2.5 flex items-center justify-center rounded-2xl"
             >
               <Zap className="h-5 w-5" />
